@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  min-width: 280px;
+  max-width: 700px;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0px 0px 0px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.bgComponent {
+  padding-bottom: 5%;
+}
+
+mat-card-title {
+  text-align: center;
+	font-size: 250%;
+	font-weight: 200;
+	color: #000000;
+	-webkit-text-rendering: optimizeLegibility;
+	-moz-text-rendering: optimizeLegibility;
+	text-rendering: optimizeLegibility;
+  padding-bottom: 50px;
+}
+
+.button {
+  background-color: #000;
+  padding: 5px;
+  width: 100%;
+  color: #fff;
+}
+
+.button:hover {
+  background-color: rgba(0, 0, 0, 0.932);
+}
+
+
+button[disabled] {
+  background-color: #dddddd;
+  cursor: not-allowed;
+}
+
+button[disabled]:hover {
+  background-color: #dddddd;
+}
+
+p > a {
+  text-decoration: underline;
+  color: #000;
+  cursor: pointer
+}

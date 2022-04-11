@@ -1,0 +1,96 @@
+h1.display-1 {
+  font: bold 3.5vw Roboto;
+  color: #ffffffda;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.11);
+}
+
+p.carousel-paragraph {
+  font: 300 1.5vw Roboto;
+  color: #ffffffda;
+}
+
+/* .carousel .carousel-item .carousel-caption {
+  width: 57%;
+  height: 570px;
+  left: 175px;
+} */
+
+.carousel-item img {
+  min-height: 32vh;
+}
+
+h5 {
+  letter-spacing: 2px;
+}
+
+.carousel-item .carousel-container {
+  position: absolute;
+  left: 39%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.carousel-inner > .carousel-item > img {
+  height: 91.5vh;
+}
+
+button {
+  color: #ffffffda;
+  font: 18px/20px Roboto;
+}
+
+button.btn-2 {
+  background-color: #0d1319;
+  border-radius: 5px;
+  border-color: transparent;
+}
+
+button.btn-2:hover {
+  background-color: #0d1319d3;
+}
+
+button.btn-2:focus,
+button.btn-1:focus {
+  outline: none !important;
+}
+
+button.btn-1 {
+  background-color: transparent;
+  border-radius: 5px;
+  border: 3px solid #0d1319;
+  color: #0d1319;
+  -webkit-text-stroke: 1px #0d1319;
+}
+
+button.btn-1:hover {
+  background-color: rgba(255, 255, 255, 0.11);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #0d1319;
+  background-size: 50%;
+  height: 3rem;
+  width: 3rem;
+}
+
+#carouselStore .carousel-indicators li {
+  border: 5px solid #fff;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin-left: 10px;
+  background-color: #0d1319;
+}
+
+#carouselStore .carousel-indicators .active {
+  background-color: #0d1319d3;
+  max-width: 10px;
+  height: 10px;
+}

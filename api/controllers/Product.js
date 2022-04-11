@@ -7,27 +7,27 @@ const createProduct = async (req, res) => {
   if (!req.body.title || !req.body.description || !req.body.price)
     return res.status(400).send({ message: "Datos incompletos" });
 
-  let imageUrl = "";
-  if (Object.keys(req.files).length === 0) {
-    imageUrl = "";
-  } else {
-    if (req.files.image) {
-      if (req.files.image.type != null) {
-        const url = req.protocol + "://" + req.get("host") + "/";
-        const serverImg =
-          ".uploads/" + moment().unix() + path.extname(req.files.image.path);
-        fs.createReadStream(req.files.image.path).pipe(
-          fs.createWriteStream(serverImg)
-        );
-        imageUrl = url + serverImg;
-      }
-    }
-  }
+  // let imageUrl = "";
+  // if (Object.keys(req.files).length === 0) {
+  //   imageUrl = "";
+  // } else {
+  //   if (req.files.image) {
+  //     if (req.files.image.type != null) {
+  //       const url = req.protocol + "://" + req.get("host") + "/";
+  //       const serverImg =
+  //         ".uploads/" + moment().unix() + path.extname(req.files.image.path);
+  //       fs.createReadStream(req.files.image.path).pipe(
+  //         fs.createWriteStream(serverImg)
+  //       );
+  //       imageUrl = url + serverImg;
+  //     }
+  //   }
+  // }
 
   const product = new Product({
     title: req.body.title,
     description: req.body.description,
-    imageUrl: imageUrl,
+    imageUrl: req.body.imageUrl,
     price: req.body.price,
     inStock: req.body.inStock,
   });
@@ -85,41 +85,31 @@ const deleteProduct = async (req, res) => {
 };
 
 const listProducts = async (req, res) => {
-  const productList = await Product.find({
-    $and: [
-      { title: new RegExp(req.params["title"], "i") },
-      { description: new RegExp(req.params["description"], "i") },
-      { img: new RegExp(req.params["img"], "i") },
-      { price: new RegExp(req.params["price"], "i") },
-    ],
-  });
+  const productList = await Product.find();
 
   try {
-    return res.status(200).json({
-      message: "Lista de productos",
-      products: productList,
-    });
+    return res.status(200).json({ productList });
   } catch (e) {
     return res.status(400).send({ message: "Error al listar productos" });
   }
 };
 
-const getProduct = async (req, res) => {
-  if (!req.params.id)
-    return res.status(400).send({ message: "Datos incompletos" });
-
-  const product = await Product.findById(req.params.id);
+const findProduct = async (req, res) => {
+  const product = await Product.findById({ _id: req.params["_id"] });
   if (!product)
     return res.status(400).send({ message: "Producto no encontrado" });
 
   try {
-    return res.status(200).json({
-      message: "Producto encontrado",
-      product: product,
-    });
+    return res.status(200).json({ product });
   } catch (e) {
     return res.status(400).send({ message: "Error al encontrar producto" });
   }
 };
 
-export default { createProduct, updateProduct, deleteProduct, listProducts, getProduct };
+export default {
+  createProduct,
+  updateProduct,
+  deleteProduct,
+  listProducts,
+  findProduct,
+};

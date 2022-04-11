@@ -10,6 +10,7 @@ router.post("/register", User.registerUser);
 router.post("/login", User.login);
 router.get("/list", auth, admin, User.listUsers);
 router.get("/find/:_id", auth, admin, validId, User.findUser);
+router.get("/getUserRole/:email", auth, User.getUserRole);
 router.put("/update/", auth, admin, User.updateUser);
 router.delete("/delete/:_id", auth, admin, User.deleteUser);
 

@@ -1,0 +1,54 @@
+<div class="bgComponent">
+  <div class="form">
+    <mat-card class="card bg-white text-dark">
+      <mat-card-title>Crea tu cuenta</mat-card-title>
+      <mat-card-content>
+        <div class="container">
+          <div>
+            <label for="username">Username</label>
+            <input
+              [(ngModel)]="registerData.username"
+              class="form-control"
+              placeholder="Por ej. Usuario"
+              required
+              name="username"
+            />
+          </div>
+          <div>
+            <label for="username">Email</label>
+            <input
+              [(ngModel)]="registerData.email"
+              type="email"
+              class="form-control"
+              placeholder="ejemplo@gmail.com"
+              required
+            />
+          </div>
+          <div>
+            <label for="username">Contraseña</label>
+            <input
+              [(ngModel)]="registerData.password"
+              type="password"
+              class="form-control"
+              placeholder="Contraseña nueva"
+              required
+              (keyup.enter)="registerUser()"
+                [type]="hide ? 'password' : 'text'"
+                #inputPass
+            />
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button (click)="registerUser()" class="button" [disabled]="!registerData.username || !registerData.email || !registerData.password">
+          Registrarte
+        </button>
+      </mat-card-actions>
+      <p>
+        ¿Ya tienes cuenta?
+        <a routerLink="/login">Iniciar sesión</a>
+      </p>
+    </mat-card>
+  </div>
+</div>

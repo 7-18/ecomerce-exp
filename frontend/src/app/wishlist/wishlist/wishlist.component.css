@@ -1,0 +1,9 @@
+.title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.fas {
+  cursor: pointer;
+  margin-left: 7px;
+}

@@ -1,0 +1,36 @@
+.card {
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.23), 0 2px 2px rgba(0, 0, 0, 0.23);
+  border-radius: 15px;
+}
+
+.img-card {
+  width: 215px;
+  margin-right: 10px;
+}
+
+.product-data {
+  height: auto;
+  line-height: 1;
+}
+
+.product-name, .product-price {
+  font-size: 16px;
+  font-weight: 400;
+  color: #222;
+  line-height: 18px;
+}
+
+.product-name {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.bgShearch {
+  background-color: #a5abaf;
+  color: #ffffff;
+}
+
+a {
+  color: #222;
+}
